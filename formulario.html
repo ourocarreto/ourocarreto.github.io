@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Form</title>
+</head>
+
+<body>
+	
+	<form onsubmit="enviarParaWhatsApp(event)">
+      <p><strong>Formulário Carreto Ouro - Salvador - Bahia<br>
+      </strong><strong>(preencha  os campos e clique em enviar)</strong>
+        <label for="nome"><strong><br>
+          <br>
+        Nome completo</strong>:</label>
+        <input name="nome" type="text" required id="nome" size="80" maxlength="200">
+      </p>
+      <p>
+        <label for="email"><strong>E-mail</strong>:</label>
+        <input name="email" type="email" required id="email" size="50" maxlength="200"> 
+        <label for="telefone"><strong>Telefone de contato</strong>:</label>
+        <input name="telefone" type="tel" required id="telefone" size="20" maxlength="13">
+      </p>
+      <p>
+        <label for="data"><strong>Data da mudança</strong>:</label>
+        <input type="date" id="data" name="data" required> 
+        <label for="horario"><strong>Horário da mudança</strong>:</label>
+        <input type="time" id="horario" name="horario" required>
+        <label for="imovelatual"><br>
+          <br>
+          <strong>Tipo de Mudança</strong>:</label>
+        <select name="tipServ" required id="tipoServico" title="Selecione">
+          <option value=""></option>
+		  <option value="basico">Básica</option>
+          <option value="intermediario">Intermediária</option>
+          <option value="completo">Completa</option>
+        </select>
+      </p>
+      <table width="690" height="241" border="0" cellspacing="10">
+        <tbody>
+    <tr>
+      <td width="195"><strong>Básica</strong></td>
+      <td width="225"><strong> Intermediária</strong></td>
+      <td width="224"><strong>Completa</strong></td>
+    </tr>
+    <tr>
+      <td width="195" valign="top"><ul>
+        <li>Cama </li>
+        <li>Colchão</li>
+        <li>Sofá</li>
+        <li> Mesa de jantar</li>
+        <li> Cadeiras </li>
+        <li> Geladeira</li>
+        <li> Fogão </li>
+        <li> Máquina de lavar </li>
+        <li> Televisão</li>
+      </ul></td>
+      <td width="225" valign="top"><ul>
+        <li>Móveis extras (camas, colchões, sofás, mesas, estantes, cômodas, berços, etc)</li>
+        <li> Eletrodomésticos extras (freezer, micro-ondas e lava-louças, televisões, fogões, etc)</li>
+        <li>Itens de decoração </li>
+        <li> Aparelhos eletrônicos (computadores,  etc)</li>
+      </ul></td>
+      <td width="224" valign="top"><ul>
+        <li>        Objetos frágeis, como cristais e porcelanas </li>
+        <li> Obras de arte </li>
+        <li> Instrumentos musicais </li>
+        <li> Antiguidades </li>
+        <li> Equipamentos eletrônicos sensíveis (notebook, monitores, etc)</li>
+        <li> Móveis de grande porte ou complexos</li>
+      </ul></td>
+    </tr>
+</tbody>
+</table>
+<p>
+  <label for="numResidentes"><strong>Quantas pessoas residem no endereço atual objeto da mudança</strong>:</label>
+  <input type="number" required id="numResidentes" max="20" min="1">
+  
+  <label for="infoAdicional"><strong><br>
+      <br>
+      Serviço de embalagem/plástico bolha (acréscimo de acordo com os objetos) :</strong>
+    <select name="embalagem" required id="embalagem">
+      <option value=""></option>
+      <option value="Sim">Sim</option>
+      <option value="Nao">Não</option>
+    </select>
+    <br>
+    <strong><br>
+Serviço de montagem/desmontagem de móveis (acréscimo a partir de R$ 150,00) :</strong>
+    <select name="maceneiro" required id="maceneiro">
+      <option value=""></option>
+      <option value="Montagem">Montagem</option>
+      <option value="Desmontagem">Desmontagem</option>
+      <option value="Mont e Desmont.">Montagem e Desmontagem</option>
+      <option value="Nao">Não</option>
+    </select>
+<br>
+    <br>
+  </label>
+  <label for="localOrigem"><strong>E</strong><strong>ndereço atual</strong>:</label>
+  <input name="origem" type="text" required="required" id="origem" size="50" maxlength="100">
+  <strong>Tipo de imóvel atual:</strong>
+  <label for="infoAdicional3">
+    <select name="imovelatual" required id="tipoServico2">
+      <option value=""></option>
+      <option value="Escada">Prédio de Escada</option>
+      <option value="Elevador">Prédio com Elevador</option>
+      <option value="Casa">Casa</option>
+    </select>
+  </label>
+  <br>
+  Ex.: nome da rua, numero do imovel (e apto se aplicavel) - CEP - Bairro - Cidade - Estado</p>
+<p>
+  <label for="localDestino"><strong>Endereço de destino</strong>:</label>
+  <input name="destino" type="text" required="required" id="destino" size="50" maxlength="100">
+  <strong>Tipo de imóvel de destino:</strong>
+  <label for="infoAdicional4">
+    <select name="imoveldestino" required id="imovelatual">
+      <option value=""></option>
+      <option value="Escada">Prédio de Escada</option>
+      <option value="Elevador">Prédio com Elevador</option>
+      <option value="Casa">Casa</option>
+    </select>
+  </label>
+<br>
+  Ex.: nome da rua, numero do imovel (e apto se aplicavel) - CEP - Bairro - Cidade - Estado</p>
+<p>
+  <label for="infoAdicional">  Informações Adicionais (opcional), acrescentar mais duas datas e horários para mudança:</label>
+</p>
+<p>
+  <textarea cols="100" rows="5" maxlength="1000" id="infoAdicional" placeholder="Observações ou detalhes específicos"></textarea>
+  
+</p>
+<button type="submit">Enviar</button>
+<p>Ao clicar em enviar, suas informações serão enviadas para o whatsapp, aguarde a janela abrir para confirmar o envio das informações.</p></form>
+
+
+
+
+
+
+
+
+</body>
+</html>
