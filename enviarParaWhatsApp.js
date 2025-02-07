@@ -12,9 +12,9 @@ function enviarParaWhatsApp(event) {
   const embalagem = document.getElementById("embalagem").value;
   const maceneiro = document.getElementById("maceneiro").value;
   const origem = document.getElementById("origem").value;
-  const tipoImovelAtual = document.getElementById("tipoServico2").value;
+  const tipoImovelAtual = document.getElementById("tipoImovelAtual").value;
   const destino = document.getElementById("destino").value;
-  const tipoImovelDestino = document.getElementById("imovelatual").value;
+  const tipoImovelDestino = document.getElementById("tipoImovelDestino").value;
   const infoAdicional = document.getElementById("infoAdicional").value;
 
   // Função para formatar a data
@@ -42,7 +42,7 @@ function enviarParaWhatsApp(event) {
 *Informações adicionais:* ${infoAdicional || "Nenhuma"}`;
 
   // Enviar para o WhatsApp
-  const telefoneTransportador = "5571992837561"; // Substitua pelo número do transportador
+  const telefoneTransportador = "5571997289355"; // Substitua pelo número do transportador
   const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefoneTransportador}&text=${encodeURIComponent(mensagem)}`;
   window.open(urlWhatsApp, "_blank");
 
