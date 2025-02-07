@@ -100,12 +100,23 @@
 	<script src="/enviarParaWhatsApp.js" defer></script>
 </head>
 <body>
-
+<script>
+    document.addEventListener('contextmenu', (event) => event.preventDefault());
+  document.addEventListener('selectstart', (event) => event.preventDefault());
+  document.addEventListener('keydown', (event) => {
+    if (
+      event.ctrlKey &&
+      (event.key === 'u' || event.key === 's' || event.key === 'Shift' || event.key === 'I')
+    ) {
+      event.preventDefault();
+    }
+  });
+</script>
 
 <div class="container">
     <img src="marca_ouro.png" alt="Carreto Ouro" width="285" height="211">
   <h2>Página de Orçamentos Expressa - Carreto Ouro</h2>
-    <p>Seja bem-vindo(a). Para agilizar seu atendimento e fornecer um orçamento preciso, pedimos que você preencha todos os campos do formulário abaixo com atenção. As informações solicitadas nos ajudarão a entender suas necessidades e oferecer a melhor solução para a sua mudança</p>
+    <p>Seja bem-vindo(a). Para agilizar seu atendimento e fornecer um orçamento preciso, preencha todos os campos do formulário abaixo. As informações solicitadas nos ajudarão a entender suas necessidades e oferecer a melhor solução para a sua mudança.</p>
 
   <form onsubmit="enviarParaWhatsApp(event)">
     <label for="nome">Nome completo:</label>
@@ -135,41 +146,46 @@
             <div class="plano">
                 <strong>Padrão Ouro</strong>
                 <ul>
-                    <li>Cama</li>
-                    <li>Colchão</li>
-                    <li>Sofá</li>
-                    <li>Mesa de jantar</li>
-                    <li>Cadeiras</li>
-                    <li>Geladeira</li>
-                    <li>Fogão</li>
-                    <li>Máquina de lavar</li>
-                    <li>Televisão</li>
-                </ul>
+                  <p>até 02 camas (incluindo berço)</p>
+                  <p> até 02 colchões, 
+                  até 02 armários (incluindo cômoda)</p>
+                  <p> 01 sofá (até 3 lugares)</p>
+                  <p> 01 mesa de jantar (até 4 lugares) e 04 cadeiras</p>
+                  <p> 01 geladeira, 01 fogão</p>
+                  <p> 01 máquina de lavar, até 02 tvs</p>
+              </ul>
             </div>
 
             <div class="plano">
                 <strong>Ouro Plus</strong>
                 <ul>
-                  <li>Móveis extras (camas, colchões, sofás, mesas, cômodas, berços, etc) </li>
-                  <li>Eletrodomésticos extras (freezer, televisões, fogões, etc) </li>
-                  <li>Itens de decoração  </li>
-                  <li>Aparelhos eletrônicos (computadores, etc)</li>
+                  <li>Móveis adicionais (além do Padrão Ouro, ex: 03 camas)</li>
+                </ul>
+                <ul>
+                  <li>Eletros adicionais (além do Padrão Ouro, ex.: freezer)</li>
+              </ul>
+                <ul>
+                  <li>Itens de decoração delicados</li>
+                     </ul>  <ul>
+                  <li>Aparelhos eletrônicos (computador, monitor, máquina costura, etc)</li> </ul> 
                 </ul>
             </div>
 
             <div class="plano">
                 <strong>Ouro Premium</strong>
-                <ul><li>Objetos frágeis, como cristais e porcelanas  </li>
-                  <li>Obras de arte  </li>
-                  <li>Instrumentos musicais  </li>
-                  <li>Antiguidades  </li>
-                  <li>Equipamentos eletrônicos sensíveis (notebook,  etc) </li>
-                  <li>Móveis de grande porte ou complexos</li>
+                <ul>
+                  <li>Cristais e porcelanas acima de 4 kg</li>     </ul>
+                   <ul>
+                  <li>Obras de arte, Instrumentos musicais, Antiguidades</li> </ul>
+                <ul>
+                  <li>Equipamentos eletrônicos sensíveis (notebooks, drones, videogames, etc)</li></ul>
+              <ul>
+                  <li>Móveis grande porte/complexos</li></ul>
                 </ul>
             </div>
         </div>
 
-        <label for="numResidentes">Quantas pessoas residem no endereço atual (endereço de origem)?</label>
+        <label for="numResidentes">Quantas pessoas residem no endereço ATUAL (endereço de origem)?</label>
         <input type="number" id="numResidentes" name="numResidentes" min="1" max="20" required>
 
         <label for="embalagem">Serviço de embalagem/plástico bolha <em>(acréscimo de acordo com os objetos a serem embalados)</em>:</label>
@@ -188,10 +204,10 @@
             <option value="Nao">Não</option>
         </select>
 
-    <label for="origem">Endereço atual (endreço de origem):</label>
-        <input name="origem" type="text" required id="origem" placeholder="Nome da rua, no. do imóvel (e apto, se aplicável) - CEP - Bairro - Cidade - Estado" title="Nome da rua, no. do imóvel (e apto, se aplicável) - CEP - Bairro - Cidade - Estado">
+    <label for="origem">Endereço ATUAL (endreço de origem):</label>
+        <input name="origem" type="text" required id="origem" placeholder="Rua, numero imóvel (e apto.), Bairro, Cidade, Estado" title="Informe o nome da rua, número do imóvel (e apartamento, se aplicável) - CEP (se possível) - Bairro - Cidade - Estado">
 
-        <label for="tipoImovelAtual">Tipo de imóvel atual: </label>
+        <label for="tipoImovelAtual">Tipo de imóvel ATUAL: </label>
         <select id="tipoImovelAtual" name="tipoImovelAtual" required>
             <option value="">Selecione</option>
             <option value="Escada">Prédio de Escada</option>
@@ -199,10 +215,10 @@
             <option value="Casa">Casa</option>
         </select>
 
-    <label for="destino">Endereço de destino:</label>
-        <input name="destino" type="text" required id="destino" placeholder="Nome da rua, no. do imóvel (e apto, se aplicável) - CEP - Bairro - Cidade - Estado" title="Nome da rua, no. do imóvel (e apto, se aplicável) - CEP - Bairro - Cidade - Estado">
+    <label for="destino">Endereço de DESTINO:</label>
+        <input name="destino" type="text" required id="destino" placeholder="Rua, numero imóvel (e apto.), Bairro, Cidade, Estado" title="Informe o nome da rua, número do imóvel (e apartamento, se aplicável) - CEP (se possível) - Bairro - Cidade - Estado">
 
-        <label for="tipoImovelDestino">Tipo de imóvel de destino:</label>
+        <label for="tipoImovelDestino">Tipo de imóvel de DESTINO:</label>
         <select id="tipoImovelDestino" name="tipoImovelDestino" required>
           <option value="">Selecione</option>
             <option value="Escada">Prédio de Escada</option>
@@ -211,7 +227,7 @@
     </select>
 
     <label for="infoAdicional">Informações Adicionais (opcional):</label>
-        <textarea name="infoAdicional" rows="4" id="infoAdicional" placeholder="favor acrescentar mais duas datas e horários para mudança." title="favor acrescentar mais duas datas e horários para mudança."></textarea>
+        <textarea name="infoAdicional" rows="4" id="infoAdicional" placeholder="sugerimos acrescentar mais duas datas e horários para mudança." title="favor acrescentar mais duas datas e horários para mudança."></textarea>
 
     <button type="submit">Enviar</button>
         <p>Ao clicar em enviar, suas informações serão enviadas para o whatsapp, aguarde a janela abrir para confirmar o envio das informações.</p>
