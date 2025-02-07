@@ -42,7 +42,7 @@ function enviarParaWhatsApp(event) {
 *Informações adicionais:* ${infoAdicional || "Nenhuma"}`;
 
   // Enviar para o WhatsApp
-  const telefoneTransportador = "5571992837561"; // Substitua pelo número do transportador
+  const telefoneTransportador = "5571997289355"; // Substitua pelo número do transportador
   const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefoneTransportador}&text=${encodeURIComponent(mensagem)}`;
   window.open(urlWhatsApp, "_blank");
 
