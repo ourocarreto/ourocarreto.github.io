@@ -130,33 +130,7 @@
 	<script src="/enviarParaWhatsApp.js" defer></script>
 </head>
 <body>
-	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-    // Inicializa o EmailJS com a Public Key
-    (function(){
-        emailjs.init("zfKYgN-XsR6ihpjFF"); // Substitua pela sua Public Key do EmailJS
-    })();
-	 emailjs.send("ourocarreto", "template_y8wcq2d", {
-            nome: nome,
-            email: email,
-            telefone: telefone,
-            data: data,
-            horario: horario,
-            tipoServico: tipoServico,
-            numResidentes: numResidentes,
-            embalagem: embalagem,
-            maceneiro: maceneiro,
-            origem: origem,
-            tipoImovelAtual: tipoImovelAtual,
-            destino: destino,
-            tipoImovelDestino: tipoImovelDestino,
-            infoAdicional: infoAdicional
-        }).then(function(response) {
-            alert("Orçamento enviado com sucesso!");
-        }, function(error) {
-            alert("Erro ao enviar e-mail. Tente novamente.");
-        });
-    }
+	<script src="/script.js"></script>
 <script>
     document.addEventListener('contextmenu', (event) => event.preventDefault());
   document.addEventListener('selectstart', (event) => event.preventDefault());
@@ -322,11 +296,13 @@
     <label for="infoAdicional">Informações Adicionais (opcional):</label>
         <textarea name="infoAdicional" rows="4" id="infoAdicional" placeholder="Sugerimos mais 2 datas e horários para mudança." title="além das informações adicionais, favor acrescentar mais duas datas e horários para mudança."></textarea>
 
-    <button type="submit">Enviar</button>
+  
 	
 	
         <p>Ao clicar em enviar, suas informações serão enviadas para o whatsapp, aguarde a janela abrir para confirmar o envio das informações.</p>
   </form>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="/chamamail.js"></script>
 </div>
 
 
