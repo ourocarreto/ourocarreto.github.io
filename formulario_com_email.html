@@ -130,7 +130,8 @@
 	<script src="/enviarParaWhatsApp.js" defer></script>
 </head>
 <body>
-	<script src="/script.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="/chamamail.js"></script>	
 <script>
     document.addEventListener('contextmenu', (event) => event.preventDefault());
   document.addEventListener('selectstart', (event) => event.preventDefault());
@@ -272,7 +273,7 @@
         </select>
 
     <label for="origem">ENDEREÇO ATUAL (endreço de origem):</label>
-        <input name="origem" type="text" required id="origem" placeholder="Rua, nºimóvel (nºapto.), Bairro, Cidade, Estado" title="Informe o nome da rua, número do imóvel (e apartamento, se aplicável) - CEP (se possível) - Bairro - Cidade - Estado">
+        <input name="origem" type="text" required id="origem" placeholder="Rua, nº imóvel (nºap.), Bairro, Cidade, Estado" title="Informe o nome da rua, número do imóvel (e apartamento, se aplicável) - CEP (se possível) - Bairro - Cidade - Estado">
 
         <label for="tipoImovelAtual">Tipo de imóvel ATUAL: </label>
         <select id="tipoImovelAtual" name="tipoImovelAtual" required>
@@ -283,7 +284,7 @@
         </select>
 
     <label for="destino">ENDEREÇO DE DESTINO:</label>
-        <input name="destino" type="text" required id="destino" placeholder="Rua, nºimóvel (nºapto.), Bairro, Cidade, Estado" title="Informe o nome da rua, número do imóvel (e apartamento, se aplicável) - CEP (se possível) - Bairro - Cidade - Estado">
+        <input name="destino" type="text" required id="destino" placeholder="Rua, nº imóvel (nºap.), Bairro, Cidade, Estado" title="Informe o nome da rua, número do imóvel (e apartamento, se aplicável) - CEP (se possível) - Bairro - Cidade - Estado">
 
         <label for="tipoImovelDestino">Tipo de imóvel de DESTINO:</label>
         <select id="tipoImovelDestino" name="tipoImovelDestino" required>
@@ -296,14 +297,12 @@
     <label for="infoAdicional">Informações Adicionais (opcional):</label>
         <textarea name="infoAdicional" rows="4" id="infoAdicional" placeholder="Sugerimos mais 2 datas e horários para mudança." title="além das informações adicionais, favor acrescentar mais duas datas e horários para mudança."></textarea>
 
-  
-	
-	
+  <button type="submit">Enviar</button>
         <p>Ao clicar em enviar, suas informações serão enviadas para o whatsapp, aguarde a janela abrir para confirmar o envio das informações.</p>
   </form>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script src="/chamamail.js"></script>
 </div>
+	
+
 
 
 
