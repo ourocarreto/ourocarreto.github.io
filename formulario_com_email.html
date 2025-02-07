@@ -1,0 +1,335 @@
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página de Orçamentos Expressa - Carreto Ouro</title>
+<style>
+    body {
+        font-family: Segoe, "Segoe UI", Verdana, sans-serif;
+        margin: 0;
+        padding: 10px;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    label {
+        font-weight: bold;
+        display: block;
+        margin-top: 10px;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    textarea {
+        resize: vertical;
+		    font-family: Segoe, "Segoe UI", Verdana, sans-serif;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        background: #fce802;
+        border: none;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #e0c202;
+    }
+
+    .planos {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .plano {
+    flex: 1;
+    min-width: 150px;
+    background: #fce802;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    }
+
+    .plano ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    @media (max-width: 600px) {
+        .planos {
+            flex-direction: column;
+        }
+
+        button {
+            font-size: 16px;
+            padding: 12px;
+        }
+    }
+	    .info-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #fce802;
+            color: black;
+            font-weight: bold;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            cursor: pointer;
+            margin-left: 5px;
+            user-select: none;
+            position: relative;
+        }
+        .tooltip {
+            display: none;
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            max-width: 250px;
+            word-wrap: break-word;
+            white-space: normal; /* Permite quebra de linha */
+            z-index: 10;
+	}
+    </style>
+</style>
+	<script src="/enviarParaWhatsApp.js" defer></script>
+</head>
+<body>
+	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+    // Inicializa o EmailJS com a Public Key
+    (function(){
+        emailjs.init("zfKYgN-XsR6ihpjFF"); // Substitua pela sua Public Key do EmailJS
+    })();
+	 emailjs.send("ourocarreto", "template_y8wcq2d", {
+            nome: nome,
+            email: email,
+            telefone: telefone,
+            data: data,
+            horario: horario,
+            tipoServico: tipoServico,
+            numResidentes: numResidentes,
+            embalagem: embalagem,
+            maceneiro: maceneiro,
+            origem: origem,
+            tipoImovelAtual: tipoImovelAtual,
+            destino: destino,
+            tipoImovelDestino: tipoImovelDestino,
+            infoAdicional: infoAdicional
+        }).then(function(response) {
+            alert("Orçamento enviado com sucesso!");
+        }, function(error) {
+            alert("Erro ao enviar e-mail. Tente novamente.");
+        });
+    }
+<script>
+    document.addEventListener('contextmenu', (event) => event.preventDefault());
+  document.addEventListener('selectstart', (event) => event.preventDefault());
+  document.addEventListener('keydown', (event) => {
+    if (
+      event.ctrlKey &&
+      (event.key === 'u' || event.key === 's' || event.key === 'Shift' || event.key === 'I')
+    ) {
+      event.preventDefault();
+    }
+  });
+</script>
+
+<div class="container">
+    <img src="marca_ouro.png" alt="Carreto Ouro" width="285" height="211">
+  <h2>Página de Orçamentos Expressa - Carreto Ouro</h2>
+    <p>Seja bem-vindo(a). Para agilizar seu atendimento e fornecer um orçamento preciso, preencha  os campos do formulário abaixo. As informações solicitadas nos ajudarão a entender suas necessidades e oferecer a melhor solução para a sua mudança.</p>
+
+  <form onsubmit="enviarParaWhatsApp(event)">
+    <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail:</label>
+        <input name="email" type="email" required id="email">
+
+        <label for="telefone">Fone de contato:</label>
+        <input name="telefone" type="tel" required id="telefone" placeholder="71-9-9999-9999">
+
+    <label for="data">Data da mudança:<span class="info-icon" id="infoIcon">?</span> </label>
+    <div id="tooltip" class="tooltip">
+      	<strong>⚠ DICA:  </strong><br>
+          Algumas regras de condomínios restringem mudanças para dias específicos (ex.: 2ª a sábado) e horários (ex.: 8h às 18h). Consulte o regulamento do seu condomínio antes de agendar sua mudança.   
+    </div>
+
+    <script>
+        const infoIcon = document.getElementById("infoIcon");
+        const tooltip = document.getElementById("tooltip");
+
+        function posicionarTooltip() {
+            const rect = infoIcon.getBoundingClientRect();
+            tooltip.style.top = window.scrollY + rect.bottom + 5 + "px";
+            tooltip.style.left = window.scrollX + rect.left + "px";
+        }
+
+        function mostrarTooltip() {
+            posicionarTooltip();
+            tooltip.style.display = "block";
+        }
+
+        function ocultarTooltip() {
+            tooltip.style.display = "none";
+        }
+
+        function alternarTooltip() {
+            if (tooltip.style.display === "block") {
+                ocultarTooltip();
+            } else {
+                mostrarTooltip();
+            }
+        }
+
+        infoIcon.addEventListener("mouseover", mostrarTooltip);
+        infoIcon.addEventListener("mouseout", ocultarTooltip);
+        infoIcon.addEventListener("click", alternarTooltip);
+    </script>
+    <input type="date" id="data" name="data" required>
+
+        <label for="horario">Horário da mudança:</label>
+        <input type="time" id="horario" name="horario" required>
+
+        <label for="tipoServico">Tipo de Mudança:</label>
+        <select id="tipoServico" name="tipoServico" required>
+            <option value="">Selecione</option>
+            <option value="Padrao">Padrão Ouro</option>
+            <option value="Plus">Ouro Plus</option>
+            <option value="Premium">Ouro Premium</option>
+        </select>
+
+        <div class="planos">
+            <div class="plano">
+                <strong>Padrão Ouro</strong>
+                <ul>
+                  <p>até 02 camas (incluindo berço)</p>
+                  <p> até 02 colchões, 
+                  até 02 armários (incluindo cômoda)</p>
+                  <p> 01 sofá (até 3 lugares) e 01  (até 2 lugares)</p>
+                  <p> 01 mesa de jantar (até 4 lugares) com até 04 cadeiras</p>
+                  <p> 01 geladeira, 01 fogão</p>
+                  <p> 01 máquina de lavar, até 02 tvs</p>
+              </ul>
+            </div>
+
+            <div class="plano">
+                <strong>Ouro Plus</strong>
+                <ul>
+                  <li>Móveis adicionais (ex: 03 camas, etc)</li>
+                </ul>
+                <ul>
+                  <li>Eletros adicionais (ex.: freezer horizontal, etc)</li>
+              </ul>
+                <ul>
+                  <li>Itens de decoração sensíveis (ex.: espelhos, lustres, quadros, etc)</li>
+              </ul>  <ul>
+                  <li>Aparelhos eletrônicos (computador, monitor, máquina costura, etc)</li> </ul> 
+                </ul>
+            </div>
+
+            <div class="plano">
+                <strong>Ouro Premium</strong>
+                <ul>
+                  <li>Cristais e porcelanas acima de 4 kg</li>     </ul>
+                   <ul>
+                  <li>Obras de arte, Instrumentos musicais, Antiguidades</li> </ul>
+                <ul>
+                  <li>Equipamentos eletrônicos sensíveis (notebooks, drones, videogames, etc)</li></ul>
+              <ul>
+                  <li>Móveis/espelhos grande porte/complexos</li></ul>
+                </ul>
+            </div>
+        </div>
+
+        <label for="numResidentes">Quantas pessoas residem no ENDEREÇO ATUAL (endereço de origem)?</label>
+        <input type="number" id="numResidentes" name="numResidentes" min="1" max="20" required>
+
+        <label for="embalagem">Serviço de embalagem/plástico bolha <em>(acréscimo de acordo com os objetos a serem embalados)</em>:</label>
+      <select id="embalagem" name="embalagem" required>
+        <option value="">Selecione</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+      </select>
+
+        <label for="maceneiro">Serviço de montagem/desmontagem de móveis <em>(acréscimo a partir de R$ 150,00)</em>:</label>
+        <select id="maceneiro" name="maceneiro" required>
+          <option value="">Selecione</option>
+            <option value="Montagem">Montagem</option>
+            <option value="Desmontagem">Desmontagem</option>
+            <option value="Mont e Desmont.">Montagem e Desmontagem</option>
+            <option value="Nao">Não</option>
+        </select>
+
+    <label for="origem">ENDEREÇO ATUAL (endreço de origem):</label>
+        <input name="origem" type="text" required id="origem" placeholder="Rua, nºimóvel (nºapto.), Bairro, Cidade, Estado" title="Informe o nome da rua, número do imóvel (e apartamento, se aplicável) - CEP (se possível) - Bairro - Cidade - Estado">
+
+        <label for="tipoImovelAtual">Tipo de imóvel ATUAL: </label>
+        <select id="tipoImovelAtual" name="tipoImovelAtual" required>
+            <option value="">Selecione</option>
+            <option value="Escada">Prédio de Escada</option>
+            <option value="Elevador">Prédio com Elevador</option>
+            <option value="Casa">Casa</option>
+        </select>
+
+    <label for="destino">ENDEREÇO DE DESTINO:</label>
+        <input name="destino" type="text" required id="destino" placeholder="Rua, nºimóvel (nºapto.), Bairro, Cidade, Estado" title="Informe o nome da rua, número do imóvel (e apartamento, se aplicável) - CEP (se possível) - Bairro - Cidade - Estado">
+
+        <label for="tipoImovelDestino">Tipo de imóvel de DESTINO:</label>
+        <select id="tipoImovelDestino" name="tipoImovelDestino" required>
+          <option value="">Selecione</option>
+            <option value="Escada">Prédio de Escada</option>
+            <option value="Elevador">Prédio com Elevador</option>
+            <option value="Casa">Casa</option>
+    </select>
+
+    <label for="infoAdicional">Informações Adicionais (opcional):</label>
+        <textarea name="infoAdicional" rows="4" id="infoAdicional" placeholder="Sugerimos mais 2 datas e horários para mudança." title="além das informações adicionais, favor acrescentar mais duas datas e horários para mudança."></textarea>
+
+    <button type="submit">Enviar</button>
+	
+	
+        <p>Ao clicar em enviar, suas informações serão enviadas para o whatsapp, aguarde a janela abrir para confirmar o envio das informações.</p>
+  </form>
+</div>
+
+
+
+</body>
+</html>
