@@ -30,7 +30,13 @@
     h2 {
         text-align: center;
     }
-
+    hr {
+            border: none; /* Remover borda padrão */
+            height: 3px; /* Definir altura da linha */
+            background-image: repeating-linear-gradient(90deg, #d3d3d3 0px, #d3d3d3 10px, transparent 10px, transparent 15px);
+            background-size: 20px 100%; /* Ajusta o tamanho do padrão */
+            margin: 20px 0; /* Espaçamento ao redor */
+        }
     label {
         font-weight: bold;
         display: block;
@@ -125,7 +131,33 @@
             white-space: normal; /* Permite quebra de linha */
             z-index: 10;
 	}
-    </style>
+    .info-icon1 {            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-color: #fce802;
+            color: black;
+            font-weight: bold;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 24px;
+            cursor: pointer;
+            margin-left: 5px;
+            user-select: none;
+            position: relative;
+}
+	       .tooltip1 {
+            display: none;
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            max-width: 250px;
+            word-wrap: break-word;
+            white-space: normal; /* Permite quebra de linha */
+            z-index: 10;
+	}
 </style>
 	<script src="/enviarParaWhatsApp.js" defer></script>
 </head>
@@ -146,7 +178,7 @@
 <div class="container">
     <img src="marca_ouro.png" alt="Carreto Ouro" width="285" height="211">
   <h2>Orçamento Expresso - Carreto Ouro</h2>
-    <p>Seja bem-vindo(a). Agilize seu atendimento, para um orçamento preciso, preencha  os campos abaixo. As informações solicitadas ajudarão a entender suas necessidades para oferecer a melhor solução para você. Conte com a gente!</p>
+    <p>Seja bem-vindo(a). Agilize seu atendimento, para um orçamento preciso, preencha  os campos abaixo. As informações solicitadas ajudarão a entender suas necessidades para oferecer a melhor solução para você.</p>
 
   <form onsubmit="enviarParaWhatsApp(event)">
     <label for="nome">Nome completo:</label>
@@ -157,113 +189,86 @@
 
         <label for="telefone">Fone de contato:</label>
         <input name="telefone" type="tel" required id="telefone" placeholder="71-9-9999-9999">
-
+<p><hr></p>
     <label for="data">Data da mudança:<span class="info-icon" id="infoIcon">?</span> </label>
     <div id="tooltip" class="tooltip">
       	<strong>⚠ DICA:  </strong><br>
           Condomínios restringem mudanças para dias específicos (ex.: 2ª a sábado) e horários (ex.: 8h às 12h/18h). Consulte o regulamento do seu condomínio para agendar sua mudança.   
     </div>
 
-    <script>
-        const infoIcon = document.getElementById("infoIcon");
-        const tooltip = document.getElementById("tooltip");
-
-        function posicionarTooltip() {
-            const rect = infoIcon.getBoundingClientRect();
-            tooltip.style.top = window.scrollY + rect.bottom + 5 + "px";
-            tooltip.style.left = window.scrollX + rect.left + "px";
-        }
-
-        function mostrarTooltip() {
-            posicionarTooltip();
-            tooltip.style.display = "block";
-        }
-
-        function ocultarTooltip() {
-            tooltip.style.display = "none";
-        }
-
-        function alternarTooltip() {
-            if (tooltip.style.display === "block") {
-                ocultarTooltip();
-            } else {
-                mostrarTooltip();
-            }
-        }
-
-        infoIcon.addEventListener("mouseover", mostrarTooltip);
-        infoIcon.addEventListener("mouseout", ocultarTooltip);
-        infoIcon.addEventListener("click", alternarTooltip);
-    </script>
+ 
     <input type="date" id="data" name="data" required>
 
         <label for="horario">Horário da mudança:</label>
         <input type="time" id="horario" name="horario" required>
 
-        <label for="tipoServico">Tipo de Mudança:</label>
-        <select id="tipoServico" name="tipoServico" required>
-            <option value="">Selecione</option>
-            <option value="Padrao">Padrão Ouro</option>
-            <option value="Plus">Ouro Plus</option>
-            <option value="Premium">Ouro Premium</option>
-        </select>
+       <label for="ItensParaTransportar">Descreva o que precisa ser transportado e a quantidade: <span class="info-icon info-icon1" id="infoIcon1">?</span></label>
+<div id="tooltip1" class="tooltip1">
+    <strong> Móveis:  </strong>
+    cama, colchão,  armário "x" porta(s), cômoda, berço, sofá "x" lugar(es), escrivaninha, mesa, cadeira, hack, painel <strong> Eletros: </strong> fogão, geladeira, freezer vertical/horizontal, máquina lavar, lava-louça, microondas, tv. <strong> Decoração: </strong>lustres, espelhos <strong> Eletrônicos e outros: </strong>computador, notebook, drone, videogame, coleções, antiguidades, relíquias, obras de arte, instrumentos musicais, cristais, pratarias, porcelanas. <strong> Caixas: </strong> n° caixas para itens como roupas, acessórios etc.
+</div>
+<script>
+        // Função para posicionar as tooltips
+        function posicionarTooltip(tooltip, infoIcon) {
+            const rect = infoIcon.getBoundingClientRect();
+            tooltip.style.top = window.scrollY + rect.bottom + 5 + "px";
+            tooltip.style.left = window.scrollX + rect.left + "px";
+        }
 
-        <div class="planos">
-            <div class="plano">
-                <strong>Padrão Ouro</strong>
-                <ul>
-                  <p>até 2 camas (incluindo berço)</p>
-                  <p> até 2 colchões, 
-                    até 2 armários (incluindo cômoda)</p>
-                  <p> sofá (3 e/ou 2 lugares)</p>
-                  <p> mesa de jantar com 4 cadeiras</p>
-                  <p> geladeira, fogão,  máquina de lavar</p>
-                  <p> até 2 tvs (conjunto de painel e rack)</p>
-                  <p>até 10 caixas (60x40x40cm até 15kg cada)</p>
-              </ul>
-            </div>
+        // Função para mostrar a tooltip
+        function mostrarTooltip(tooltip, infoIcon) {
+            posicionarTooltip(tooltip, infoIcon);
+            tooltip.style.display = "block";
+        }
 
-            <div class="plano">
-                <strong>Ouro Plus</strong>
-                <ul>
-                  <li>móveis adicionais (ex: 3 ou + camas, 3 ou + colchões, etc)</li>
-                </ul>
-                <ul>
-                  <li>eletros adicionais (ex.: freezer horizontal/vertical, etc)</li>
-                </ul>
-                <ul>
-                  <li>itens de decoração sensíveis (ex.: espelhos, lustres, quadros, etc)</li>
-                </ul>
-                <ul>
-                  <li>eletrônicos (computador, monitor, máquina costura, etc)</li>
-                </ul>
-                <p>até 15 caixas (60x40x40cm até 15kg cada)</p> 
-                </ul>
-            </div>
+        // Função para ocultar a tooltip
+        function ocultarTooltip(tooltip) {
+            tooltip.style.display = "none";
+        }
 
-            <div class="plano">
-                <strong>Ouro Premium</strong>
-                <ul>
-                  <li>cristais, pratarias e porcelanas acima de 4 kg</li>
-                </ul>
-                <ul>
-                  <li>obras de arte, instrumentos musicais, antiguidades, coleções</li>
-                </ul>
-                <ul>
-                  <li>eletrônicos sensíveis (notebooks, drones, videogames, etc)</li>
-                </ul>
-                <ul>
-                  <li>móveis/espelhos grande porte/complexos</li>
-                </ul>
-                <p>até 20 caixas (60x40x40cm até 15kg cada)</p>
-                </ul>
-            </div>
-        </div>
+        // Tooltip 1 - Data da mudança
+        const infoIcon = document.getElementById("infoIcon");
+        const tooltip = document.getElementById("tooltip");
 
-        <label for="numResidentes">Quantas pessoas residem no ENDEREÇO ATUAL (endereço de origem)?</label>
+        infoIcon.addEventListener("mouseover", function() {
+            mostrarTooltip(tooltip, infoIcon);
+        });
+        infoIcon.addEventListener("mouseout", function() {
+            ocultarTooltip(tooltip);
+        });
+        infoIcon.addEventListener("click", function() {
+            if (tooltip.style.display === "block") {
+                ocultarTooltip(tooltip);
+            } else {
+                mostrarTooltip(tooltip, infoIcon);
+            }
+        });
+
+        // Tooltip 2 - Tipo de serviço
+        const infoIcon1 = document.getElementById("infoIcon1");
+        const tooltip1 = document.getElementById("tooltip1");
+
+        infoIcon1.addEventListener("mouseover", function() {
+            mostrarTooltip(tooltip1, infoIcon1);
+        });
+        infoIcon1.addEventListener("mouseout", function() {
+            ocultarTooltip(tooltip1);
+        });
+        infoIcon1.addEventListener("click", function() {
+            if (tooltip1.style.display === "block") {
+                ocultarTooltip(tooltip1);
+            } else {
+                mostrarTooltip(tooltip1, infoIcon1);
+            }
+        });
+    </script>
+    <textarea name="ItensParaTransportar" rows="4" required="required" id="ItensParaTransportar" placeholder="Descreva os itens e quantidades a serem transportados" title="Descreva os itens e quantidades a serem transportados"></textarea>
+     
+
+    <label for="numResidentes">Quantas pessoas residem no ENDEREÇO ATUAL (endereço de origem)?</label>
         <input type="number" id="numResidentes" name="numResidentes" min="1" max="20" required>
-
-        <label for="embalagem">Serviço de embalagem/plástico bolha <em>(acréscimo de acordo com os objetos a serem embalados)</em>:</label>
+<p><hr></p>
+    <label for="embalagem">Serviço de embalagem/plástico bolha <em>(acréscimo de acordo com os objetos a serem embalados)</em>:</label>
       <select id="embalagem" name="embalagem" required>
         <option value="">Selecione</option>
             <option value="Sim">Sim</option>
@@ -278,7 +283,7 @@
             <option value="Mont e Desmont.">Montagem e Desmontagem</option>
             <option value="Nao">Não</option>
         </select>
-
+<p><hr></p>
     <label for="origem">ENDEREÇO ATUAL (endreço de origem):</label>
         <input name="origem" type="text" required id="origem" placeholder="Rua, nº imóvel (nº ap), Bairro, Cidade, Estado" title="Informe o nome da rua, número do imóvel (e apartamento, se aplicável) - CEP (se possível) - Bairro - Cidade - Estado">
 
@@ -289,8 +294,15 @@
             <option value="Elevador">Prédio com Elevador</option>
             <option value="Casa">Casa</option>
         </select>
-
-    <label for="destino">ENDEREÇO DE DESTINO:</label>
+	
+	    <label for="CarretoParaImovelAtual">O carreto consegue parar no IMÓVEL ATUAL? </label>
+    <select id="CarretoParaImovelAtual" name="CarretoParaImovelAtual" required>
+            <option value="">Selecione</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+    </select>
+<p><hr></p>
+   <label for="destino">ENDEREÇO DE DESTINO:</label>
         <input name="destino" type="text" required id="destino" placeholder="Rua, nº imóvel (nº ap), Bairro, Cidade, Estado" title="Informe o nome da rua, número do imóvel (e apartamento, se aplicável) - CEP (se possível) - Bairro - Cidade - Estado">
 
         <label for="tipoImovelDestino">Tipo de imóvel de DESTINO:</label>
@@ -300,12 +312,19 @@
             <option value="Elevador">Prédio com Elevador</option>
             <option value="Casa">Casa</option>
     </select>
-
-    <label for="infoAdicional">Informações Adicionais (opcional):</label>
-        <textarea name="infoAdicional" rows="4" id="infoAdicional" placeholder="Sugestão: neste campo acrescente mais duas datas para mudança, além de móveis/objetos específicos." title="além das informações adicionais, favor acrescentar mais duas datas e horários para mudança."></textarea>
-
-    <button type="submit">Enviar</button>
-        <p>Ao clicar em enviar, suas informações serão enviadas para o whatsapp, aguarde a janela abrir para confirmar o envio das informações.</p>
+	
+		<label for="CarretoParaImovelDestino">O carreto consegue parar no IMÓVEL DE DESTINO? </label>
+    <select id="CarretoParaImovelDestino" name="CarretoParaImovelDestino" required>
+            <option value="">Selecione</option>
+            <option value="Sim">Sim</option>
+            <option value="Nao">Não</option>
+    </select>
+<p><hr></p>
+    <label for="infoAdicional">Informações Adicionais:</label>
+        <textarea name="infoAdicional" rows="4" id="infoAdicional" placeholder="Sugestão: Neste campo acrescente mais duas datas e horários para mudança" title="Sugestão: Neste campo acrescente mais duas datas e horários para mudança"></textarea>
+<p>
+	<button type="submit">Enviar</button></p>
+    <p>Ao clicar em enviar, suas informações serão enviadas para o whatsapp, aguarde a janela abrir para confirmar o envio das informações.</p>
   </form>
 </div>
 
