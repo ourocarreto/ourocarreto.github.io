@@ -1,1 +1,53 @@
-function _0x543b(_0x2bb0b4,_0x48b6a3){const _0x29e69c=_0x29e6();return _0x543b=function(_0x543b0c,_0x289ecb){_0x543b0c=_0x543b0c-0x1aa;let _0x240210=_0x29e69c[_0x543b0c];return _0x240210;},_0x543b(_0x2bb0b4,_0x48b6a3);}(function(_0x738747,_0x583efd){const _0x489b78=_0x543b,_0x293d56=_0x738747();while(!![]){try{const _0x4c429a=-parseInt(_0x489b78(0x1aa))/0x1+-parseInt(_0x489b78(0x1d3))/0x2*(-parseInt(_0x489b78(0x1b3))/0x3)+-parseInt(_0x489b78(0x1ae))/0x4+parseInt(_0x489b78(0x1b7))/0x5+parseInt(_0x489b78(0x1d5))/0x6*(parseInt(_0x489b78(0x1cf))/0x7)+parseInt(_0x489b78(0x1dc))/0x8*(parseInt(_0x489b78(0x1c2))/0x9)+-parseInt(_0x489b78(0x1d0))/0xa;if(_0x4c429a===_0x583efd)break;else _0x293d56['push'](_0x293d56['shift']());}catch(_0x18983e){_0x293d56['push'](_0x293d56['shift']());}}}(_0x29e6,0x7b90b));function enviarParaWhatsApp(_0x40f584){const _0x2bd444=_0x543b;_0x40f584['preventDefault']();const _0x55947d=document[_0x2bd444(0x1cb)](_0x2bd444(0x1b4))[_0x2bd444(0x1ad)],_0x386714=document[_0x2bd444(0x1cb)](_0x2bd444(0x1c0))[_0x2bd444(0x1ad)],_0x585453=document[_0x2bd444(0x1cb)](_0x2bd444(0x1ce))['value'],_0x1cc403=document[_0x2bd444(0x1cb)](_0x2bd444(0x1de))[_0x2bd444(0x1ad)],_0x27f03=document[_0x2bd444(0x1cb)]('horario')[_0x2bd444(0x1ad)],_0xfbedcf=document[_0x2bd444(0x1cb)](_0x2bd444(0x1bb))[_0x2bd444(0x1ad)],_0x4728bc=document[_0x2bd444(0x1cb)](_0x2bd444(0x1cc))[_0x2bd444(0x1ad)],_0x330d56=document[_0x2bd444(0x1cb)]('embalagem')[_0x2bd444(0x1ad)],_0x415ce4=document[_0x2bd444(0x1cb)](_0x2bd444(0x1d8))[_0x2bd444(0x1ad)],_0x4372b6=document['getElementById'](_0x2bd444(0x1d7))[_0x2bd444(0x1ad)],_0x54b225=document[_0x2bd444(0x1cb)](_0x2bd444(0x1b8))[_0x2bd444(0x1ad)],_0xfab7d9=document[_0x2bd444(0x1cb)]('CarretoParaImovelAtual')[_0x2bd444(0x1ad)],_0x5472d6=document[_0x2bd444(0x1cb)](_0x2bd444(0x1dd))[_0x2bd444(0x1ad)],_0x5e90c9=document[_0x2bd444(0x1cb)](_0x2bd444(0x1e1))[_0x2bd444(0x1ad)],_0x44c876=document[_0x2bd444(0x1cb)](_0x2bd444(0x1c3))[_0x2bd444(0x1ad)],_0x51efb7=document[_0x2bd444(0x1cb)]('infoAdicional')[_0x2bd444(0x1ad)];function _0x479448(_0x123851){const _0x17e454=_0x2bd444,_0x1bf0d6={'weekday':'long','year':_0x17e454(0x1d1),'month':'numeric','day':_0x17e454(0x1d1),'timeZone':_0x17e454(0x1bf)},_0xbfea7b=new Date(_0x123851+'T00:00:00-03:00');return _0xbfea7b[_0x17e454(0x1ba)](_0x17e454(0x1b2),_0x1bf0d6);}const _0x5db96e=_0x479448(_0x1cc403),_0x2842eb='*Nome\x20completo:*\x20'+_0x55947d+_0x2bd444(0x1df)+_0x386714+'\x0a*Telefone:*\x20'+_0x585453+_0x2bd444(0x1d9)+_0x5db96e+_0x2bd444(0x1da)+_0x27f03+_0x2bd444(0x1c1)+_0xfbedcf+_0x2bd444(0x1b6)+_0x4728bc+'\x0a*Serviço\x20de\x20embalagem:*\x20'+_0x330d56+_0x2bd444(0x1c6)+_0x415ce4+_0x2bd444(0x1bc)+_0x4372b6+'\x20('+_0x54b225+_0x2bd444(0x1db)+_0xfab7d9+'\x0a*Endereço\x20de\x20destino:*\x20'+_0x5472d6+'\x20('+_0x5e90c9+')\x0a*Carreto\x20para\x20na\x20porta\x20do\x20imóvel\x20de\x20destino:*\x20'+_0x44c876+_0x2bd444(0x1e0)+(_0x51efb7||'Nenhuma'),_0x457723=_0x2bd444(0x1d6),_0xf83589=_0x2bd444(0x1b5)+_0x457723+_0x2bd444(0x1ac)+encodeURIComponent(_0x2842eb);window[_0x2bd444(0x1b0)](_0xf83589,_0x2bd444(0x1ca)),fetch(_0x2bd444(0x1c7),{'method':_0x2bd444(0x1c4),'headers':{'Accept':_0x2bd444(0x1ab),'Authorization':_0x2bd444(0x1b1)},'body':JSON['stringify']({'event_type':_0x2bd444(0x1c9),'client_payload':{'to':_0x2bd444(0x1bd),'subject':_0x2bd444(0x1b9),'message':_0x2842eb}})})[_0x2bd444(0x1c5)](_0x158da4=>{const _0xe827d3=_0x2bd444;_0x158da4['ok']?alert(_0xe827d3(0x1cd)):alert(_0xe827d3(0x1d2));})[_0x2bd444(0x1c8)](_0x4cfbef=>{const _0x46776e=_0x2bd444;console[_0x46776e(0x1af)](_0x46776e(0x1d4),_0x4cfbef),alert(_0x46776e(0x1be));});}function _0x29e6(){const _0x3505cb=['\x0a*Horário\x20da\x20mudança:*\x20',')\x0a*Carreto\x20para\x20na\x20porta\x20do\x20imóvel\x20atual:*\x20','352MCIDBv','destino','data','\x0a*E-mail:*\x20','\x0a*Informações\x20adicionais:*\x20','tipoImovelDestino','661296GpUvQX','application/vnd.github.v3+json','&text=','value','990696KDyFOi','error','open','Bearer\x20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','pt-BR','394017FAAzrR','nome','https://api.whatsapp.com/send?phone=','\x0a*Número\x20de\x20moradores:*\x20','4730840DLHugs','tipoImovelAtual','Novo\x20Pedido\x20de\x20Mudança','toLocaleDateString','ItensParaTransportar','\x0a*Endereço\x20de\x20origem:*\x20','ourocarreto@gmail.com','Erro\x20ao\x20enviar\x20formulário.','America/Sao_Paulo','email','\x0a*Itens\x20para\x20transportar:*\x20','142353JWsNxy','CarretoParaImovelDestino','POST','then','\x0a*Montagem/desmontagem\x20de\x20móveis:*\x20','https://api.github.com/repos/ourocarreto/ourocarreto.github.io/dispatches','catch','enviar_email','_blank','getElementById','numResidentes','Formulário\x20enviado\x20com\x20sucesso!','telefone','3487729waBnYZ','8566090ToEQdg','numeric','Erro\x20ao\x20enviar\x20formulário,\x20tente\x20outra\x20vez.','2xyuSjU','Erro\x20ao\x20enviar\x20formulário:','6eiRcqe','5571997289355','origem','maceneiro','\x0a*Data\x20da\x20mudança:*\x20'];_0x29e6=function(){return _0x3505cb;};return _0x29e6();}
+function enviarParaWhatsApp(event) {
+  event.preventDefault(); // Prevenir o envio padrão do formulário
+
+  // Capturar os dados do formulário
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("email").value;
+  const telefone = document.getElementById("telefone").value;
+  const dataInput = document.getElementById("data").value;
+  const horario = document.getElementById("horario").value;
+  const ItensParaTransportar = document.getElementById("ItensParaTransportar").value;
+  const numResidentes = document.getElementById("numResidentes").value;
+  const embalagem = document.getElementById("embalagem").value;
+  const maceneiro = document.getElementById("maceneiro").value;
+  const origem = document.getElementById("origem").value;
+  const tipoImovelAtual = document.getElementById("tipoImovelAtual").value;
+  const CarretoParaImovelAtual = document.getElementById("CarretoParaImovelAtual").value;	
+  const destino = document.getElementById("destino").value;
+  const tipoImovelDestino = document.getElementById("tipoImovelDestino").value;
+  const CarretoParaImovelDestino = document.getElementById("CarretoParaImovelDestino").value;
+  const infoAdicional = document.getElementById("infoAdicional").value;
+
+  // Função para formatar a data
+  function formatarData(dataISO) {
+    const opcoes = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric', timeZone: 'America/Sao_Paulo' };
+    const data = new Date(dataISO + 'T00:00:00-03:00'); // Ajuste para o fuso horário de Brasília
+    return data.toLocaleDateString('pt-BR', opcoes);
+  }
+
+  // Formatar a data da mudança
+  const dataFormatada = formatarData(dataInput);
+
+  // Montar a mensagem
+  const mensagem = `*Nome completo:* ${nome}
+*E-mail:* ${email}
+*Telefone:* ${telefone}
+*Data da mudança:* ${dataFormatada}
+*Horário da mudança:* ${horario}
+*Itens para transportar:* ${ItensParaTransportar}
+*Número de moradores:* ${numResidentes}
+*Serviço de embalagem:* ${embalagem}
+*Montagem/desmontagem de móveis:* ${maceneiro}
+*Endereço de origem:* ${origem} (${tipoImovelAtual})
+*Carreto para na porta do imóvel atual:* ${CarretoParaImovelAtual}
+*Endereço de destino:* ${destino} (${tipoImovelDestino})
+*Carreto para na porta do imóvel de destino:* ${CarretoParaImovelDestino}
+*Informações adicionais:* ${infoAdicional || "Nenhuma"}`;
+
+  // Enviar para o WhatsApp
+  const telefoneTransportador = "5571997289355"; // Substitua pelo número do transportador
+  const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefoneTransportador}&text=${encodeURIComponent(mensagem)}`;
+  window.open(urlWhatsApp, "_blank");
+
+
