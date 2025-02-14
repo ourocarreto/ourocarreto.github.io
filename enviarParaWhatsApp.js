@@ -49,5 +49,5 @@ function enviarParaWhatsApp(event) {
   const telefoneTransportador = "5571997289355"; // Substitua pelo número do transportador
   const urlWhatsApp = `https://api.whatsapp.com/send?phone=${telefoneTransportador}&text=${encodeURIComponent(mensagem)}`;
   window.open(urlWhatsApp, "_blank");
-
+}
 
